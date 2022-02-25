@@ -1,6 +1,6 @@
 fetch('https://jsonplaceholder.typicode.com/comments')
     .then(res => res.json())
-    .then(data => displayComment(data.slice(0, 10)))
+    .then(data => displayComment(data))
 
 const displayComment = data => {
 
