@@ -1,6 +1,6 @@
 fetch('https://jsonplaceholder.typicode.com/comments')
     .then(res => res.json())
-    .then(data => displayComment(data))
+    .then(data => displayComment(data.slice(0, 10)))
 
 const displayComment = data => {
 
@@ -28,5 +28,13 @@ const getId = async id => {
 }
 
 const commentDetails = data => {
-
+    const detailsContainer = document.getElementById('details-commnet');
+    detailsContainer.textContent = ''
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <h2>name: ${data.name}</h2>
+    <h4>Email:${data.email}</h4>
+    <p>${data.body}</p>
+    `
+    detailsContainer.appendChild(div)
 }
